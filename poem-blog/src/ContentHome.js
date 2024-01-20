@@ -1,19 +1,11 @@
 import { useState, useEffect } from 'react';
 import PostList from './PostList';
+import useFetch from './fetch';
+
 const Homes = () => {
-    const [posts, setPost] = useState(null)
+    const {data: posts, error} = useFetch("http://localhost:8000/posts");
     
-   useEffect(() => {
-    fetch('http://localhost:8000/posts')
-    .then(res => {
-        return res.json()
-    })
-    .then(data => {
-        setPost(data);
-        console.log(posts);
-    })
-   },[]    
-   );
+   
 
     return (  
         <div className="home">
@@ -21,6 +13,7 @@ const Homes = () => {
                 <h2 style={{color:'#1e37c5'}}>HomeFeed</h2>
                 <input type="textbox" value="search Poem" ></input>
             </div>
+            {error && <div className='error'>{error}</div>}
             {posts && <PostList posts={posts}/>}
         </div>
     );
