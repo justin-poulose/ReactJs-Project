@@ -35,3 +35,28 @@
   margin: 40px auto;
   padding: 20px;
 }
+.headerFeed{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom:30px;
+}
+.headerFeed input{
+  padding: 2px 15px;
+  height: 25px;
+  border: 1px solid rgba(255, 0, 0, 0);
+  border-radius: 15px;
+  background-color: #dce1fe;
+}
+.post{
+  background-color: #dce1fe;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.post:hover{
+  background-color: #f0f2fb;
+}
+.post p{
+  color: #1e37c5;
+}
