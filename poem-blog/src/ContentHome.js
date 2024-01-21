@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import PostList from './PostList';
 import useFetch from './fetch';
 
@@ -10,7 +9,7 @@ const Homes = () => {
     return (  
         <div className="home">
             <div className='headerFeed'>
-                <h2 style={{color:'#1e37c5'}}>HomeFeed</h2>
+                <h2 style={{color:'#1e37c5'}}>Home Feed</h2>
                 <input type="textbox" value="search Poem" ></input>
             </div>
             {error && <div className='error'>{error}</div>}

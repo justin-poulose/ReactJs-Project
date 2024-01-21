@@ -5,19 +5,26 @@ const useFetch = (url) => {
     const [error,seterror] = useState(null);
 
     useEffect(() => {
-        fetch(url)
-    .then(res => {
-        if(!res.ok){
-            throw Error("could not fetch the data")
-        }
-        return res.json()
-    })
-    .then(data => {
-        setData(data);
-    })
-    .catch(err => {
-         seterror(err.message);
-    })
+
+        const abortCont = new AbortController();
+
+        fetch(url, {signal: abortCont.signal})
+        .then(res => {
+            if(!res.ok){
+                throw Error("could not fetch the data")
+            }
+            return res.json()
+        })
+        .then(data => {
+            setData(data);
+        })
+        .catch(err => {
+            if(err.name != 'AbortError')
+            seterror(err.message);
+        })
+
+        return () => abortCont.abort();
+
     },[url]
     );
     return {data,error}

@@ -1,13 +1,24 @@
 import Navbar from './Navbar';
 import Homes from './ContentHome';
+import CreatePost from './CreatePost';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
-  const Title= 'VerseCraft'
   return (
-    <div className="App">
-      <Navbar/>
-      <Homes/>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar/>
+        <Switch>
+           <Route exact path="/">
+            <Homes/>
+           </Route>
+           <Route path="/createpost">
+             <CreatePost/>
+           </Route>
+        </Switch>
+        
+      </div>
+    </Router>
   );
 }
 
