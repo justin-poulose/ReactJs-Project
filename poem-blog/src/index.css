@@ -48,6 +48,13 @@
   border-radius: 15px;
   background-color: #dce1fe;
 }
+.postpage{
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f4f6ff;
+  border-radius: 25px;
+}
 .post{
   background-color: #dce1fe;
   padding: 15px;
@@ -62,4 +69,22 @@
 }
 a{
   text-decoration: none;
+}
+.poemform{
+  padding-left: 5%;
+}
+lable,input,textarea, button{
+  margin: 5px;
+  font-size:1.2em;
+}
+input,textarea{
+  border: 1px solid rgba(255, 0, 0, 0);
+  border-bottom: 3px solid #bfc7f5;
+  background-color: #f0f2fb;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+textarea{
+  height:200px;
+  width: 400px;
 }

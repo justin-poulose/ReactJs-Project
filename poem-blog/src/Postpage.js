@@ -4,7 +4,7 @@ const Postpage = () => {
     const{id} = useParams();
     const {data,error} = useFetch('http://localhost:8000/posts/'+id);
     return ( 
-        <div className="home">
+        <div className="postpage">
             <div className='headerFeed'> 
                 { error && <div> {error} </div> }
                 { data && (
