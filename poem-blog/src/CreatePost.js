@@ -1,13 +1,22 @@
-import {useState} from 'react'
+import {useState} from 'react';
+import{useHistory} from 'react-router-dom';
+
 const CreatePost = () => {
     const [title,settitle] = useState('');
     const [author,setauthor] = useState('');
     const [poem,setpoem] = useState('');
+    const history = useHistory();
 
     const handleSubmit = (e) =>{
         e.preventDefault();
         const post= {title,author,poem};
-        
+        fetch('http://localhost:8000/posts',{
+            method:'POST',
+            headers:{"Content-Type": "application/json"},
+            body: JSON.stringify(post)
+        }).then(()=>{
+            history.push('/');
+        })
     }
 
     return ( 
@@ -25,7 +34,7 @@ const CreatePost = () => {
                     <lable>Author's Name</lable><br></br>
                     <input type="text" required value={author}
                     onChange={(e)=> setauthor(e.target.value)}></input><br></br>
-                    <lable>write your Poem here</lable><br></br>
+                    <lable>write your Verse here</lable><br></br>
                     <textarea required value={poem}
                     onChange={(e)=> setpoem(e.target.value)}>
                     </textarea><br></br>

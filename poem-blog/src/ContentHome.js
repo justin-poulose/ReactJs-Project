@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const Homes = () => {
     const {data: posts, error} = useFetch("http://localhost:8000/posts");
-    const [searchtext,setsearchtext] = useState('search poem');
+    const [searchtext,setsearchtext] = useState('search Verse');
    
 
     return (  

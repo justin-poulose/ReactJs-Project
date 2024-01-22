@@ -2,6 +2,7 @@ import Navbar from './Navbar';
 import Homes from './ContentHome';
 import CreatePost from './CreatePost';
 import Postpage from './Postpage';
+import NotFound from './NotFound';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
            </Route>
            <Route path="/posts/:id">
              <Postpage/>
+           </Route>
+           <Route path="*">
+             <NotFound/>
            </Route>
         </Switch>
         
